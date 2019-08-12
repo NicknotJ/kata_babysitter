@@ -16,8 +16,8 @@ function userSitFamily(input){
   return 'Z';
 }
 
-function calculatePay(input){
-  return input;
+function calculatePay(hours, rate){
+  return hours * rate;
 }
 
 
