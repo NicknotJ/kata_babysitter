@@ -20,5 +20,10 @@ describe('UserHoursInput', () => {
 describe('UserFamilyInput', () => {
   it('Should return the inputted letter', () => {
     assert.equal(calculations.userSitFamily('A'), 'A');
-  })
-})
+    assert.equal(calculations.userSitFamily('B'), 'B');
+    assert.equal(calculations.userSitFamily('C'), 'C');
+  });
+  it('Should return Z if the input is not a letter', () => {
+    assert.equal(calculations.userSitFamily(3), 'Z')
+  });
+});
