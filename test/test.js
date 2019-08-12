@@ -35,8 +35,10 @@ describe('UserFamilyInput', () => {
 });
 
 describe('CalculatePay', () => {
-  it('Should return the input', () => {
-    assert.equal(calculations.calculatePay(5), 5);
+  it('should multiply the hourly input by the rate', () => {
+    assert.equal(calculations.calculatePay(3, 12), 36);
+    assert.equal(calculations.calculatePay(1, 20), 20);
+    assert.equal(calculations.calculatePay(0, 10), 0);
   })
 })
 
