@@ -6,7 +6,12 @@ function userSitHours(input){
 }
 
 function userSitFamily(input){
-  return input;
+  //idea: ('a' <= x && x <= 'z') || ('A' <= x && x <= 'Z') for filtering numbers?
+  let stringInput = String(input);
+  if(('a' <= stringInput && stringInput <= 'z') || ('A' <= stringInput && stringInput <= 'Z')){
+    return input;
+  }
+  return 'Z';
 }
 
 

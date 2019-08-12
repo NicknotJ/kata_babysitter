@@ -23,7 +23,11 @@ describe('UserFamilyInput', () => {
     assert.equal(calculations.userSitFamily('B'), 'B');
     assert.equal(calculations.userSitFamily('C'), 'C');
   });
+  //please note: letter in this case refers only to the 26 letters of the English alphabet
   it('Should return Z if the input is not a letter', () => {
-    assert.equal(calculations.userSitFamily(3), 'Z')
+    assert.equal(calculations.userSitFamily(3), 'Z');
+    assert.equal(calculations.userSitFamily('D'), 'D');
+    assert.equal(calculations.userSitFamily('/'), 'Z');
+    assert.equal(calculations.userSitFamily('a'), 'a');
   });
 });
