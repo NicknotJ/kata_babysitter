@@ -5,12 +5,12 @@ function userSitHours(input){
   return input;
 }
 
-function userFamilyInput(input){
+function userSitFamily(input){
   return input;
 }
 
 
 module.exports = {
   userSitHours,
-  userFamilyInput
+  userSitFamily
 };
