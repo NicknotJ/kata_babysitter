@@ -27,9 +27,9 @@ describe('UserFamilyInput', () => {
   it('Should return Z if the input is not a letter', () => {
     assert.equal(calculations.userSitFamily(3), 'Z');
     assert.equal(calculations.userSitFamily('&'), 'Z');
-    assert.equal(calculations.userSitFamily('a'), 'a');
   });
   it('Should return Y if the input is not A/a, B/b, or C/c', () => {
     assert.equal(calculations.userSitFamily('D'), 'Y');
+    assert.equal(calculations.userSitFamily('d'), 'Y');
   });
 });

@@ -9,7 +9,9 @@ function userSitFamily(input){
   //idea: ('a' <= x && x <= 'z') || ('A' <= x && x <= 'Z') for filtering numbers?
   let stringInput = String(input);
   if(('a' <= stringInput && stringInput <= 'z') || ('A' <= stringInput && stringInput <= 'Z')){
-    return input;
+    if(stringInput.toUpperCase() >= 'A' && stringInput.toUpperCase() <= 'C'){
+      return stringInput.toUpperCase();
+    } else return 'Y';
   }
   return 'Z';
 }
