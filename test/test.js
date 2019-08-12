@@ -9,8 +9,8 @@ describe('UserInput', () => {
   it('Should return any positive number', () => {
     assert.equal(calculations.userSitHours(5), 5);
     assert.equal(calculations.userSitHours(2), 2);
-  })
+  });
   it('Should return negative 1 for any negative number', () => {
     assert.equal(calculations.userSitHours(-2), -1);
-  })
+  });
 })
