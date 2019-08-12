@@ -16,8 +16,13 @@ function userSitFamily(input){
   return 'Z';
 }
 
+function calculatePay(input){
+  return input;
+}
+
 
 module.exports = {
   userSitHours,
-  userSitFamily
+  userSitFamily,
+  calculatePay
 };

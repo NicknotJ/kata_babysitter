@@ -17,13 +17,13 @@ describe('UserHoursInput', () => {
   });
 });
 
+//please note: letter in this case refers only to the 26 letters of the English alphabet
 describe('UserFamilyInput', () => {
   it('Should return the inputted letter', () => {
     assert.equal(calculations.userSitFamily('A'), 'A');
     assert.equal(calculations.userSitFamily('B'), 'B');
     assert.equal(calculations.userSitFamily('C'), 'C');
   });
-  //please note: letter in this case refers only to the 26 letters of the English alphabet
   it('Should return Z if the input is not a letter', () => {
     assert.equal(calculations.userSitFamily(3), 'Z');
     assert.equal(calculations.userSitFamily('&'), 'Z');
@@ -33,3 +33,10 @@ describe('UserFamilyInput', () => {
     assert.equal(calculations.userSitFamily('d'), 'Y');
   });
 });
+
+describe('CalculatePay', () => {
+  it('Should return the input', () => {
+    assert.equal(calculations.calculatePay(5), 5);
+  })
+})
+
