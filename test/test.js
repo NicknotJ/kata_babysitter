@@ -2,7 +2,7 @@ const calculations = require('../calculations');
 const chai = require('chai');
 const assert = chai.assert;
 
-describe('UserInput', () => {
+describe('UserHoursInput', () => {
   it('Should return the inputted number', () => {
     assert.equal(calculations.userSitHours(1), 1);
   });
@@ -12,5 +12,13 @@ describe('UserInput', () => {
   });
   it('Should return negative 1 for any negative number', () => {
     assert.equal(calculations.userSitHours(-2), -1);
+    assert.equal(calculations.userSitHours(-1), -1);
+    assert.equal(calculations.userSitHours(-.5), -1);
   });
+});
+
+describe('UserFamilyInput', () => {
+  it('Should return the inputted letter', () => {
+    assert.equal(calculations.userSitFamily('A'), 'A');
+  })
 })
