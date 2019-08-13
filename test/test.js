@@ -54,5 +54,10 @@ describe('CalculatePay', () => {
 describe('Family', () => {
   it('Should be defined.', () => {
     assert.isDefined(families.familyA, 'familyA has been defined');
+  });
+  it('Should return correct pay for hours + rate', () => {
+    assert.equal(families.familyA.calculatePay(2, 15), 30);
+    assert.equal(families.familyA.calculatePay(4, 20), 80);
   })
+
 })
