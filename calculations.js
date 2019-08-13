@@ -9,6 +9,9 @@ function userSitHours(startNumber, startTime, endNumber, endTime){
   if(startTime === 'pm' && startNumber < 5){
     return -1;
   }
+  if(startTime === 'am' && (startNumber >= 4 && startNumber !== 12)){
+    return -1;
+  }
   if(startTime !== endTime){
     endNumber += 12;
   }
