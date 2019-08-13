@@ -17,6 +17,11 @@ describe('UserHoursInput', () => {
     assert.equal(calculations.userSitHours(4, 'am', 5, 'am'), -1);
     assert.equal(calculations.userSitHours(11, 'am', 12, 'pm'), -1);
   });
+  it('Should return -1 if the start time is after the end time', () => {
+    assert.equal(calculations.userSitHours(7, 'pm', 5, 'pm'), -1);
+    assert.equal(calculations.userSitHours(12, 'am', 11, 'pm'), -1);
+    assert.equal(calculations.userSitHours(3, 'am', 1, 'am'), -1);
+  })
 });
 
 //please note: letter in this case refers only to the 26 letters of the English alphabet
