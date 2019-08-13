@@ -1,4 +1,5 @@
 const calculations = require('../calculations');
+const families = require('../families');
 const chai = require('chai');
 const assert = chai.assert;
 
@@ -52,6 +53,6 @@ describe('CalculatePay', () => {
 
 describe('Family', () => {
   it('Should be defined.', () => {
-    assert.isDefined(family, 'family has been defined');
+    assert.isDefined(families.family, 'family has been defined');
   })
 })
