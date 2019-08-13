@@ -39,13 +39,7 @@ function userSitFamily(input){
   return 'Z';
 }
 
-function calculatePay(hours, rate){
-  return hours * rate;
-}
-
-
 module.exports = {
   userSitHours,
-  userSitFamily,
-  calculatePay
+  userSitFamily
 };

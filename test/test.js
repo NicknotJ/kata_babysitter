@@ -43,14 +43,6 @@ describe('UserFamilyInput', () => {
   });
 });
 
-describe('CalculatePay', () => {
-  it('should multiply the hourly input by the rate', () => {
-    assert.equal(calculations.calculatePay(3, 12), 36);
-    assert.equal(calculations.calculatePay(1, 20), 20);
-    assert.equal(calculations.calculatePay(0, 10), 0);
-  })
-})
-
 describe('Family', () => {
   it('Should be defined.', () => {
     assert.isDefined(families.familyA, 'familyA has been defined');
