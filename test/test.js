@@ -15,6 +15,10 @@ describe('UserHoursInput', () => {
     assert.equal(calculations.userSitHours(-1), -1);
     assert.equal(calculations.userSitHours(-.5), -1);
   });
+  it('Should return the number of hours between start and end', () => {
+    assert.equal(calculations.userSitHours(5, 'pm', 4, 'am'), 11);
+    assert.equal(calculations.userSitHours(5, 'pm', 6, 'pm'), 1);
+  })
 });
 
 //please note: letter in this case refers only to the 26 letters of the English alphabet
