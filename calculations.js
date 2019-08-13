@@ -1,10 +1,10 @@
 //Input: Start time, End time
 //Checks: Is start time before 5 pm? Is end time after 4 am? Is end time before or equal to start time?
-function userSitHours(input){
-  if(input < 0){
-    return -1;
+function userSitHours(startNumber, startTime, endNumber, endTime){
+  if(startTime !== endTime){
+    endNumber += 12;
   }
-  return input;
+  return endNumber - startNumber;
 }
 
 function userSitFamily(input){

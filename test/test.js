@@ -3,18 +3,6 @@ const chai = require('chai');
 const assert = chai.assert;
 
 describe('UserHoursInput', () => {
-  it('Should return the inputted number', () => {
-    assert.equal(calculations.userSitHours(1), 1);
-  });
-  it('Should return any positive number', () => {
-    assert.equal(calculations.userSitHours(5), 5);
-    assert.equal(calculations.userSitHours(2), 2);
-  });
-  it('Should return negative 1 for any negative number', () => {
-    assert.equal(calculations.userSitHours(-2), -1);
-    assert.equal(calculations.userSitHours(-1), -1);
-    assert.equal(calculations.userSitHours(-.5), -1);
-  });
   it('Should return the number of hours between start and end', () => {
     assert.equal(calculations.userSitHours(5, 'pm', 4, 'am'), 11);
     assert.equal(calculations.userSitHours(5, 'pm', 6, 'pm'), 1);
