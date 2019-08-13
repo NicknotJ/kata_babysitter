@@ -6,6 +6,10 @@ describe('UserHoursInput', () => {
   it('Should return the number of hours between start and end', () => {
     assert.equal(calculations.userSitHours(5, 'pm', 4, 'am'), 11);
     assert.equal(calculations.userSitHours(5, 'pm', 6, 'pm'), 1);
+  });
+  it('Should return -1 if the start is before 5 pm', () => {
+    assert.equal(calculations.userSitHours(4, 'pm', 4, 'am'), -1);
+    assert.equal(calculations.userSitHours(12, 'pm', 4, 'am'), -1);
   })
 });
 
