@@ -53,6 +53,6 @@ describe('CalculatePay', () => {
 
 describe('Family', () => {
   it('Should be defined.', () => {
-    assert.isDefined(families.family, 'family has been defined');
+    assert.isDefined(families.familyA, 'familyA has been defined');
   })
 })
