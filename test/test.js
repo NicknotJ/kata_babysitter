@@ -8,6 +8,7 @@ describe('UserHoursInput', () => {
     assert.equal(calculations.userSitHours(5, 'pm', 6, 'pm'), 1);
     //edge case testing for 12am
     assert.equal(calculations.userSitHours(12, 'am', 4, 'am'), 4);
+    assert.equal(calculations.userSitHours(5, 'pm', 12, 'am'), 7);
   });
   it('Should return -1 if the start time is before 5 pm', () => {
     assert.equal(calculations.userSitHours(4, 'pm', 4, 'am'), -1);
@@ -21,7 +22,7 @@ describe('UserHoursInput', () => {
     assert.equal(calculations.userSitHours(7, 'pm', 5, 'pm'), -1);
     assert.equal(calculations.userSitHours(12, 'am', 11, 'pm'), -1);
     assert.equal(calculations.userSitHours(3, 'am', 1, 'am'), -1);
-  })
+  });
 });
 
 //please note: letter in this case refers only to the 26 letters of the English alphabet
