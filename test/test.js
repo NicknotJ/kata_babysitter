@@ -50,6 +50,9 @@ describe('Family', () => {
   it('Should return correct pay for hours + rate', () => {
     assert.equal(families.familyA.calculatePay(2, 15), 30);
     assert.equal(families.familyA.calculatePay(4, 20), 80);
-  })
+  });
+  it('Should have an array for the time spans', () => {
+    assert.isDefined(families.familyA.timeSpan, 'timeSpan has been defined');
+  });
 
 })
