@@ -51,9 +51,19 @@ describe('Family', () => {
     assert.equal(families.familyA.calculatePay(2, 15), 30);
     assert.equal(families.familyA.calculatePay(4, 20), 80);
   });
-  it('Should have an array for the time spans', () => {
+  it('Should have an array for the time spans with start and end times', () => {
     assert.isDefined(families.familyA.timeSpan, 'timeSpan has been defined');
+    assert.isDefined(families.familyA.timeSpan[0].startNumber, 'startNumber is defined');
+    assert.isDefined(families.familyA.timeSpan[0].startTime, 'startTime is defined');
+    assert.isDefined(families.familyA.timeSpan[0].endNumber, 'endNumber is defined');
+    assert.isDefined(families.familyA.timeSpan[0].endTime, 'endTime is defined');
+  });
+  it('The timeSpan arrays should include a cost', () => {
     assert.isDefined(families.familyA.timeSpan[0].cost, 'cost has been defined');
+    assert.isDefined(families.familyA.timeSpan[1].cost, 'cost has been defined');
+  });
+  it('Should have timeSpan arrays with a boolean value for hourly', () => {
+    assert.isDefined(families.familyA.timeSpan[0].hourly, 'hourly has been defined');
   });
 
 })
