@@ -65,5 +65,8 @@ describe('Family', () => {
   it('Should have timeSpan arrays with a boolean value for hourly', () => {
     assert.isDefined(families.familyA.timeSpan[0].hourly, 'hourly has been defined');
   });
+  it('Should have a number value for the number of timeSpans for the family', () => {
+    assert.isDefined(families.familyA.numberOfTimeSpans, 'numberOfTimeSpans has been defined');
+  });
 
 })

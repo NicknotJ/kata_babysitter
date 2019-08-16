@@ -3,6 +3,7 @@ class Family {
     this.name = name;
     //timeSpan is an array of objects that represent the starting/ending, payrate, and hourly/set for the timespans
     this.timeSpan = timeSpan;
+    // this.numberOfTimeSpans = timeSpan.length;
   }
 
   calculatePay(hours, rate){
