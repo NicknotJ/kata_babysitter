@@ -53,6 +53,7 @@ describe('Family', () => {
   });
   it('Should have an array for the time spans', () => {
     assert.isDefined(families.familyA.timeSpan, 'timeSpan has been defined');
+    assert.isDefined(families.familyA.timeSpan[0].cost, 'cost has been defined');
   });
 
 })
