@@ -9,6 +9,9 @@ class Family {
   calculatePay(hours, rate){
     return hours * rate;
   }
+  totalAmount(){
+    return 0;
+  }
 }
 //startNumber, startTime, endNumber, endTime
 const familyA = new Family('A', [{startNumber: 5, startTime: 'pm', endNumber: '10', endTime: 'pm', cost: 15, hourly: true}, {startNumber: 10, startTime: 'pm', endNumber: '4', endTime: 'am', cost: 20, hourly: false}]);
