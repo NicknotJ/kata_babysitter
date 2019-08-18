@@ -69,5 +69,8 @@ describe('Family', () => {
     assert.isDefined(families.familyA.numberOfTimeSpans, 'numberOfTimeSpans has been defined');
     assert.equal(families.familyA.numberOfTimeSpans, 2);
   });
-
+  it('Should calculate the totalAmount earned', () => {
+    assert.isDefined(families.familyA.totalAmount, 'totalAmount has been defined');
+    assert.equal(families.familyA.totalAmount(), 0);
+  })
 })
