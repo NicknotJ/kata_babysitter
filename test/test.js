@@ -78,9 +78,9 @@ describe('Family', () => {
     assert.equal(families.familyA.totalAmount(12, "am", 4, "am"), 20);
     //testing for familyB, the only default family with more than two timespans
     assert.isDefined(families.familyB.totalAmount, 'totalAmount has been defined');
-    assert.equal(families.familyB.totalAmount(5, "pm", 4, "am"), 88);
-    assert.equal(families.familyB.totalAmount(12, "am", 4, "am"), 16);
-    assert.equal(families.familyB.totalAmount(11, "pm", 4, "am"), 24);
+    assert.equal(families.familyB.totalAmount(5, "pm", 4, "am"), 92);
+    assert.equal(families.familyB.totalAmount(12, "am", 4, "am"), 16); //currently failing. Returning 32!!!
+    assert.equal(families.familyB.totalAmount(11, "pm", 4, "am"), 24); //also returning 32...? 
   });
   it('has a method: totalAmount which returns -1 if the times given are impossible', () => {
     assert.equal(families.familyA.totalAmount(5, "am", 4, "am"), -1);
