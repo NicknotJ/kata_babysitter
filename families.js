@@ -1,3 +1,4 @@
+const calculations = require('./calculations');
 class Family {
   constructor(name, timeSpan){
     this.name = name;
@@ -9,8 +10,8 @@ class Family {
   calculatePay(hours, rate){
     return hours * rate;
   }
-  totalAmount(){
-    return 0;
+  totalAmount(startNumber, startTime, endNumber = 4, endTime = 'am'){
+    return calculations.userSitHours(startNumber, startTime, endNumber, endTime);
   }
 }
 //startNumber, startTime, endNumber, endTime
