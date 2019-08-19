@@ -36,7 +36,7 @@ class Family {
   }
 }
 //startNumber, startTime, endNumber, endTime
-const familyA = new Family('A', [{startNumber: 5, startTime: 'pm', endNumber: '10', endTime: 'pm', rate: 15, hourly: true}, {startNumber: 10, startTime: 'pm', endNumber: '4', endTime: 'am', rate: 20, hourly: false}]);
+const familyA = new Family('A', [{startNumber: 5, startTime: 'pm', endNumber: '11', endTime: 'pm', rate: 15, hourly: true}, {startNumber: 11, startTime: 'pm', endNumber: '4', endTime: 'am', rate: 20, hourly: false}]);
 //Family A pays $15 per hour before 11pm, and $20 per hour the rest of the night
 
 
