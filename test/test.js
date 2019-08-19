@@ -72,5 +72,9 @@ describe('Family', () => {
   it('Should calculate the totalAmount earned', () => {
     assert.isDefined(families.familyA.totalAmount, 'totalAmount has been defined');
     assert.equal(families.familyA.totalAmount(), 0);
-  })
+    //should return the number of hours with a given start time
+    assert.equal(families.familyA.totalAmount(5, "pm"), 11);
+    assert.equal(families.familyA.totalAmount(12, "am"), 4);
+    assert.equal(families.familyA.totalAmount(4, "am"), -1); //sanity check
+  });
 })
