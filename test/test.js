@@ -68,12 +68,19 @@ describe('Family', () => {
   it('Should have a number value for the number of timeSpans for the family', () => {
     assert.isDefined(families.familyA.numberOfTimeSpans, 'numberOfTimeSpans has been defined');
     assert.equal(families.familyA.numberOfTimeSpans, 2);
+    assert.isDefined(families.familyB.numberOfTimeSpans, 'numberOfTimeSpans has been defined');
+    assert.equal(families.familyB.numberOfTimeSpans, 3);
   });
   it('has a method: totalAmount which should calculate the totalAmount earned', () => {
     assert.isDefined(families.familyA.totalAmount, 'totalAmount has been defined');
     //Using the amounts given in the timeSpan, totalAmount should return the correct amount earned
     assert.equal(families.familyA.totalAmount(5, "pm", 4, "am"), 110);
     assert.equal(families.familyA.totalAmount(12, "am", 4, "am"), 20);
+    //testing for familyB, the only default family with more than two timespans
+    assert.isDefined(families.familyB.totalAmount, 'totalAmount has been defined');
+    assert.equal(families.familyB.totalAmount(5, "pm", 4, "am"), 88);
+    assert.equal(families.familyB.totalAmount(12, "am", 4, "am"), 16);
+    assert.equal(families.familyB.totalAmount(11, "pm", 4, "am"), 24);
   });
   it('has a method: totalAmount which returns -1 if the times given are impossible', () => {
     assert.equal(families.familyA.totalAmount(5, "am", 4, "am"), -1);
