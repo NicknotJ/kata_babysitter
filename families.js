@@ -10,7 +10,7 @@ class Family {
   calculatePay(hours, rate){
     return hours * rate;
   }
-  totalAmount(startNumber, startTime, endNumber = 4, endTime = 'am'){
+  totalAmount(startNumber, startTime, endNumber, endTime){
     let hours = calculations.userSitHours(startNumber, startTime, endNumber, endTime);
     return this.calculatePay(hours, this.timeSpan[0].rate);
   }

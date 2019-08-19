@@ -59,8 +59,8 @@ describe('Family', () => {
     assert.isDefined(families.familyA.timeSpan[0].endTime, 'endTime is defined');
   });
   it('The timeSpan arrays should include a cost', () => {
-    assert.isDefined(families.familyA.timeSpan[0].cost, 'cost has been defined');
-    assert.isDefined(families.familyA.timeSpan[1].cost, 'cost has been defined');
+    assert.isDefined(families.familyA.timeSpan[0].rate, 'rate has been defined');
+    assert.isDefined(families.familyA.timeSpan[1].rate, 'rate has been defined');
   });
   it('Should have timeSpan arrays with a boolean value for hourly', () => {
     assert.isDefined(families.familyA.timeSpan[0].hourly, 'hourly has been defined');
@@ -71,8 +71,9 @@ describe('Family', () => {
   });
   it('Should calculate the totalAmount earned', () => {
     assert.isDefined(families.familyA.totalAmount, 'totalAmount has been defined');
-    //should take number of hours with a given start time and multiply it by a pay rate
-    assert.equal(families.familyA.totalAmount(5, "pm", 4, "am"), 165);
-    assert.equal(families.familyA.totalAmount(12, "am", 4, "am"), 60);
+    //Using the amounts given in the timeSpan, totalAmount should return the correct amount earned
+    assert.equal(families.familyA.totalAmount(5, "pm", 4, "am"), 110);
+    assert.equal(families.familyA.totalAmount(12, "am", 4, "am"), 20);
+    //
   });
 })
