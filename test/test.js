@@ -71,13 +71,7 @@ describe('Family', () => {
   });
   it('Should calculate the totalAmount earned', () => {
     assert.isDefined(families.familyA.totalAmount, 'totalAmount has been defined');
-    //should return the number of hours with a given start time
-    assert.equal(families.familyA.totalAmount(5, "pm"), 11);
-    assert.equal(families.familyA.totalAmount(12, "am"), 4);
-    assert.equal(families.familyA.totalAmount(4, "am"), -1); //sanity check
-    //should return the number of hours with a given start time and endtime
-    assert.equal(families.familyA.totalAmount(5, "pm", 4, "am"), 11);
-    assert.equal(families.familyA.totalAmount(12, "am", 4, "am"), 4);
-    assert.equal(families.familyA.totalAmount(4, "pm", 4, "am"), -1);
-  });
+    //should take number of hours with a given start time and multiply it by a pay rate
+    assert.equal(families.familyA.totalAmount(5, "pm", 4, "am"), 165);
+    assert.equal(families.familyA.totalAmount(12, "am", 4, "am"), 60);
 })
