@@ -74,4 +74,5 @@ describe('Family', () => {
     //should take number of hours with a given start time and multiply it by a pay rate
     assert.equal(families.familyA.totalAmount(5, "pm", 4, "am"), 165);
     assert.equal(families.familyA.totalAmount(12, "am", 4, "am"), 60);
+  });
 })
