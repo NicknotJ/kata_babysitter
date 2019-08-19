@@ -13,15 +13,19 @@ function userSitHours(startNumber, startTime, endNumber, endTime){
   if(startTime === 'pm' && startNumber < 5){
     return -1;
   }
+  //cannot start after 4 am (with special consideration for 12 am)
   if(startTime === 'am' && (startNumber >= 4 && startNumber !== 12)){
     return -1;
   }
+  //endNumber gets 12 added to it for maths sakes (special consideration for 12am)
   if(startTime !== endTime && endNumber !== 12){
     endNumber += 12;
   }
+  //SPECIAL CONSIDERATION FOR 12 AM
   if(startTime === 'am' && startNumber === 12){
     startNumber = 0;
   }
+  //sanity check, can't start after we end
   if(startNumber > endNumber){
     return -1;
   }
