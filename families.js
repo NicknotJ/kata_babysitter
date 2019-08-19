@@ -11,8 +11,28 @@ class Family {
     return hours * rate;
   }
   totalAmount(startNumber, startTime, endNumber, endTime){
-    let hours = calculations.userSitHours(startNumber, startTime, endNumber, endTime);
-    return this.calculatePay(hours, this.timeSpan[0].rate);
+    // let hours = calculations.userSitHours(startNumber, startTime, endNumber, endTime);
+    // return this.calculatePay(hours, this.timeSpan[0].rate);
+
+    //sanity check:
+    if(calculations.userSitHours(startNumber, startTime, endNumber, endTime) === -1){
+      return -1;
+    }
+    let earned = 0;
+    let calcStarted = false;
+    for(let x = 0; x < this.timeSpan.length; x++){
+      let timeSat = calculations.userSitHours(startNumber, startTime, this.timeSpan[x].endNumber, this.timeSpan[x].endTime);
+      if(timeSat === -1 && calcStarted === false){
+        continue;
+      }
+      calcStarted = true;
+      if(this.timeSpan[x].hourly === true){
+        earned = earned + this.calculatePay(timeSat, this.timeSpan[x].rate);
+      } else {
+        earned = earned + this.timeSpan[x].rate;
+      }
+      }
+      return earned;
   }
 }
 //startNumber, startTime, endNumber, endTime
