@@ -39,8 +39,12 @@ function convertTime(number, time){
   if(time === 'am' && (number > 4 && number !== 12)){
     return -1;
   }
-  return number;
-
+  if(time === 'pm' || number === 12){
+    return number - 5;
+  }
+  if(time === 'am'){
+    return number + 7;
+  }
 }
 
 function userSitFamily(input){
