@@ -11,34 +11,49 @@ class Family {
     return hours * rate;
   }
   totalAmount(startNumber, startTime, endNumber, endTime){
-    // let hours = calculations.userSitHours(startNumber, startTime, endNumber, endTime);
-    // return this.calculatePay(hours, this.timeSpan[0].rate);
-
-    //sanity check:
+    //Sanity check (no reason to do the calculations if the times are impossible)
     if(calculations.userSitHours(startNumber, startTime, endNumber, endTime) === -1){
       return -1;
     }
+    let initialStartTime = calculations.convertTime(startNumber, startTime);
+    let initialEndTime = calculations.convertTime(endNumber, endTime);
     let earned = 0;
     let calcStarted = false;
-    for(let x = 0; x < this.timeSpan.length; x++){
-      let timeSat = calculations.userSitHours(startNumber, startTime, this.timeSpan[x].endNumber, this.timeSpan[x].endTime);
-      console.log('first console. timeSat is...', timeSat);
-      if(timeSat === -1 && calcStarted === false){
+    //this will end the loop once we hit the start time in a span
+    let endMe = false;
+    for(let x = this.timeSpan.length - 1; x >= 0; x--){
+      //if the endtime is before timeSpan[x].startNumber then we continue
+      let currentSpan = this.timeSpan[x];
+      //calculations.convertTime returns a number from 0 (5pm) - 11 (4am). Returns -1 if outside timespan 
+      if(initialEndTime < calculations.convertTime(currentSpan.startNumber, currentSpan.startTime)){
         continue;
       }
-      if(calcStarted = true){
-        //this needs to check which is later, timeSpan[x].endNumber or endNumber and use the earlier of the two. 
-        timeSat = calculations.userSitHours(this.timeSpan[x].startNumber, this.timeSpan[x].startTime, this.timeSpan[x].endNumber, this.timeSpan[x].endTime)
-      }
-      if(this.timeSpan[x].hourly === true){
-        earned = earned + this.calculatePay(timeSat, this.timeSpan[x].rate);
+      let thisEndTime;
+      if(calcStarted === false){
+        thisEndTime = initialEndTime;
       } else {
-        earned = earned + this.timeSpan[x].rate;
+        thisEndTime = calculations.convertTime(currentSpan.endNumber, currentSpan.endTime);
       }
-      
+      let thisStartTime;
+      let spanStartTime = calculations.convertTime(currentSpan.startNumber, currentSpan.startTime);
+      if(initialStartTime < spanStartTime){
+        thisStartTime = spanStartTime;
+      } else {
+        thisStartTime = initialStartTime;
+        endMe = true;
+      }
+      let thisHours = thisEndTime - thisStartTime;
+      if(currentSpan.hourly){
+         earned = earned + this.calculatePay(thisHours, currentSpan.rate)
+      } else {
+         earned = earned + currentSpan.rate;
+      }
       calcStarted = true;
+      if(endMe === true){
+        break;
       }
-      return earned;
+    }
+    return earned;
   }
 }
 //startNumber, startTime, endNumber, endTime
