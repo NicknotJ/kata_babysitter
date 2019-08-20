@@ -47,6 +47,11 @@ describe('convertTime', () => {
   it('Should be defined', () => {
     assert.isDefined(calculations.convertTime, 'convertTime is defined');
   });
+  it('Should return -1 if the input is outside our time range (5pm-4am)', () => {
+    assert.equal(calculations.convertTime(4, 'pm'), -1);
+    assert.equal(calculations.convertTime(12, 'pm'), -1);
+    assert.equal(calculations.convertTime(5, 'am'), -1);
+  })
   it('Should take a number and time (am/pm) and return a number', () => {
     assert.equal(calculations.convertTime(5, 'pm'), 0);
     assert.equal(calculations.convertTime(11, 'pm'), 6);
