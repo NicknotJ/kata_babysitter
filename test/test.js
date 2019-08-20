@@ -43,6 +43,18 @@ describe('UserFamilyInput', () => {
   });
 });
 
+describe('convertTime', () => {
+  it('Should be defined', () => {
+    assert.isDefined(calculations.convertTime, 'convertTime is defined');
+  });
+  it('Should take a number and time (am/pm) and return a number', () => {
+    assert.equal(calculations.convertTime(5, 'pm'), 0);
+    assert.equal(calculations.convertTime(11, 'pm'), 6);
+    assert.equal(calculations.convertTime(12, 'am'), 7);
+    assert.equal(calculations.convertTime(4, 'am'), 11);
+  });
+})
+
 describe('Family', () => {
   it('Should be defined.', () => {
     assert.isDefined(families.familyA, 'familyA has been defined');
@@ -77,10 +89,11 @@ describe('Family', () => {
     assert.equal(families.familyA.totalAmount(5, "pm", 4, "am"), 110);
     assert.equal(families.familyA.totalAmount(12, "am", 4, "am"), 20);
     //testing for familyB, the only default family with more than two timespans
+    //CURRENTLY INCOMPLETE
     assert.isDefined(families.familyB.totalAmount, 'totalAmount has been defined');
-    assert.equal(families.familyB.totalAmount(5, "pm", 4, "am"), 92);
-    assert.equal(families.familyB.totalAmount(12, "am", 4, "am"), 16); //currently failing. Returning 32!!!
-    assert.equal(families.familyB.totalAmount(11, "pm", 4, "am"), 24); //also returning 32...? 
+    assert.equal(families.familyB.totalAmount(5, 'pm', 4, "am"), 92);
+    assert.equal(families.familyB.totalAmount(12, 'am', 4, 'am'), 16);
+    assert.equal(families.familyB.totalAmount(11, 'pm', 3, 'am'), 24);
   });
   it('has a method: totalAmount which returns -1 if the times given are impossible', () => {
     assert.equal(families.familyA.totalAmount(5, "am", 4, "am"), -1);
