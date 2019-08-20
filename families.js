@@ -56,14 +56,16 @@ class Family {
     return earned;
   }
 }
-//startNumber, startTime, endNumber, endTime
-const familyA = new Family('A', [{startNumber: 5, startTime: 'pm', endNumber: 11, endTime: 'pm', rate: 15, hourly: true}, {startNumber: 11, startTime: 'pm', endNumber: 4, endTime: 'am', rate: 20, hourly: false}]);
-//Family A pays $15 per hour before 11pm, and $20 per hour the rest of the night
-const familyB = new Family('B', [{startNumber: 5, startTime: 'pm', endNumber: 10, endTime: 'pm', rate: 12, hourly: true}, {startNumber: 10, startTime: 'pm', endNumber: 12, endTime: 'am', rate: 8, hourly: true}, {startNumber: 12, startTime: 'am', endNumber: 4, endTime: 'am', rate: 16, hourly: false}]);
-//Family B pays $12 per hour before 10pm, $8 between 10 and 12, and $16 the rest of the night
 
+//Family A pays $15 per hour before 11pm, and $20 per hour the rest of the night
+const familyA = new Family('A', [{startNumber: 5, startTime: 'pm', endNumber: 11, endTime: 'pm', rate: 15, hourly: true}, {startNumber: 11, startTime: 'pm', endNumber: 4, endTime: 'am', rate: 20, hourly: false}]);
+//Family B pays $12 per hour before 10pm, $8 between 10 and 12, and $16 the rest of the night
+const familyB = new Family('B', [{startNumber: 5, startTime: 'pm', endNumber: 10, endTime: 'pm', rate: 12, hourly: true}, {startNumber: 10, startTime: 'pm', endNumber: 12, endTime: 'am', rate: 8, hourly: true}, {startNumber: 12, startTime: 'am', endNumber: 4, endTime: 'am', rate: 16, hourly: false}]);
+//Family C pays $21 per hour before 9pm and then $15 for the rest of the night
+const familyC = new Family('C', [{startNumber: 5, startTime: 'pm', endNumber: 9, endTime: 'pm', rate: 21, hourly: true}, {startNumber: 9, startTime: 'pm', endNumber: 4, endTime: 'am', rate: 15, hourly: false}]);
 
 module.exports = {
   familyA,
-  familyB
+  familyB,
+  familyC
 }
