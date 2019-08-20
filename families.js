@@ -18,6 +18,7 @@ class Family {
     let initialStartTime = calculations.convertTime(startNumber, startTime);
     let initialEndTime = calculations.convertTime(endNumber, endTime);
     let earned = 0;
+    //this will tell the loop if we hit the endtime in a span and to use the currentSpan's end in the future
     let calcStarted = false;
     //this will end the loop once we hit the start time in a span
     let endMe = false;
