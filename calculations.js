@@ -32,6 +32,17 @@ function userSitHours(startNumber, startTime, endNumber, endTime){
   return endNumber - startNumber;
 }
 
+function convertTime(number, time){
+  if(time === 'pm' && (number < 5 || number === 12)){
+    return -1;
+  }
+  if(time === 'am' && (number > 4 && number !== 12)){
+    return -1;
+  }
+  return number;
+
+}
+
 function userSitFamily(input){
   //idea: ('a' <= x && x <= 'z') || ('A' <= x && x <= 'Z') for filtering numbers?
   let stringInput = String(input);
@@ -44,6 +55,7 @@ function userSitFamily(input){
 }
 
 module.exports = {
+  convertTime,
   userSitHours,
   userSitFamily
 };
