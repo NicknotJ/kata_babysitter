@@ -7,10 +7,14 @@ function main(){
   const r1 = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
+    prompt: 'Hello and welcome to Baby$at V 0.01'
   });
+
+  r1.prompt();
+
   //Flowchart of user actions/interactions
   //Generic Greeting: Welcome to Baby$at V 0.01
-  //Question: Which family did you sit for?
+  //Question: Which family did you sit for (Please input a letter)?
     //if answer is Aa/Bb/Cc -> store variable, continue
     //if answer returns Y -> Sorry, no family'letter' in database
     //if answer returns Z -> Please input a roman letter
