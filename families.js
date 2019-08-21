@@ -65,8 +65,12 @@ const familyB = new Family('B', [{startNumber: 5, startTime: 'pm', endNumber: 10
 //Family C pays $21 per hour before 9pm and then $15 for the rest of the night
 const familyC = new Family('C', [{startNumber: 5, startTime: 'pm', endNumber: 9, endTime: 'pm', rate: 21, hourly: true}, {startNumber: 9, startTime: 'pm', endNumber: 4, endTime: 'am', rate: 15, hourly: false}]);
 
+const families = {
+  'A': familyA,
+  'B': familyB,
+  'C': familyC
+}
+
 module.exports = {
-  familyA,
-  familyB,
-  familyC
+  families
 }

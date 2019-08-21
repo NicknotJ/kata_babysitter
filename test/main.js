@@ -3,9 +3,10 @@ const families = require('../families');
 const main = require('../babysitter');
 const chai = require('chai');
 const assert = chai.assert;
+const cmd = require('./cmd');
 
-describe('Main function', () => {
+describe('BabySat CL', () => {
   it('Should exist', () => {
-    assert.isDefined(main.main, 'main is defined');
-  })
+    assert.isDefined(main.babySat, 'babySat is defined');
+  });
 })
