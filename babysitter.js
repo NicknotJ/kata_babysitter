@@ -9,9 +9,11 @@ function main(){
     output: process.stdout,
     prompt: 'Hello and welcome to Baby$at V 0.01'
   });
-
   r1.prompt();
-
+  r1.question('What family did you sit for (Example: A)?', (answer) => {
+    console.log(`Oh, so you sat for Family${answer}?`);
+  });
+  //prompt is showing up way later than question
   //Flowchart of user actions/interactions
   //Generic Greeting: Welcome to Baby$at V 0.01
   //Question: Which family did you sit for (Please input a letter)?
