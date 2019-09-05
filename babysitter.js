@@ -3,7 +3,7 @@ const families = require('./families');
 const readline = require('readline');
 
 
-function main(){
+function babysit(){
   const r1 = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
@@ -31,5 +31,5 @@ function main(){
 
 
 module.exports = {
-  main
+  babysit
 }
