@@ -1,6 +1,6 @@
 const calculations = require('../calculations');
 const families = require('../families');
-const main = require('../babysitter');
+const babysitter = require('../babysitter');
 const chai = require('chai');
 const assert = chai.assert;
 
@@ -12,6 +12,9 @@ const assert = chai.assert;
 
 describe('babySat', () => {
   it('Should exist', () => {
-    assert.isDefined(main.babysit, 'babysit is defined');
+    assert.isDefined(babysitter.babysit, 'babysit is defined');
   });
+  it('Should question the user about what family they sat for and store response', () => {
+    
+  })
 })

@@ -3,15 +3,21 @@ const families = require('./families');
 const readline = require('readline');
 
 
+let store = {
+  family: undefined,
+  startNumber: undefined,
+  startTime: undefined,
+  endNumber: undefined,
+  endTime: undefined
+};
+
 function babysit(){
-  const r1 = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-    prompt: 'Hello and welcome to Baby$at V 0.01'
-  });
-  r1.question('What family did you sit for (Example: A)?', (answer) => {
-    console.log(`Oh, so you sat for Family${answer}?`);
-  });
+   console.log('What is your name?');
+   process.stdin.once('data', (chunk) => {
+     let name = chunk.toString().trim();
+     console.log('Hello, ' + name + '!');
+     process.exit();
+   });
   //prompt is showing up way later than question
   //Flowchart of user actions/interactions
   //Generic Greeting: Welcome to Baby$at V 0.01
@@ -27,9 +33,15 @@ function babysit(){
     //check if answer is possible, if not go back to when did you stop sitting?
   //Return amount earned
   //Thank you and have fun spending your hard earned money!
-}
+  function end(){
+    r1.close();
+  }
+};
+
+babysit();
 
 
 module.exports = {
-  babysit
+  babysit,
+  store
 }
