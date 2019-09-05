@@ -29,7 +29,6 @@ function main(){
   //Thank you and have fun spending your hard earned money!
 }
 
-main();
 
 module.exports = {
   main
