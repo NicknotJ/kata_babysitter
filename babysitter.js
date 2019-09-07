@@ -22,8 +22,17 @@ async function babysit(){
   //  let greetingTimer = (exampleFunction) => setTimeout(exampleFunction, 1500);
    
   //  greetingTimer(exampleFunction);
-  store.family = await ask('What family did you sit for?');
-  console.log(store.family);
+  do {
+    store.family = await ask('What family did you sit for?');
+    if(store.family === 'Y'){
+      console.log(`I'm sorry, there is no family${store.family}`);
+    }
+    if(store.family === 'Z'){
+      console.log("Please input an alphabetical letter");
+    }
+  } while (store.family === 'Y' || store.family === 'Z');
+  
+    console.log(store.family);
   store.startNumber = await ask('What time (number only) did you start sitting?');
   store.startTime = await ask('Did you start in the am or pm?');
   store.endNumber = await ask('What time (number only) did you stop sitting?');
