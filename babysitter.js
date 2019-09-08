@@ -23,9 +23,10 @@ async function babysit(){
    
   //  greetingTimer(exampleFunction);
   do {
-    store.family = await ask('What family did you sit for?');
+    let input = await ask('What family did you sit for?');
+    store.family = calculations.userSitFamily(input);
     if(store.family === 'Y'){
-      console.log(`I'm sorry, there is no family${store.family}`);
+      console.log(`I'm sorry, there is no family${input}`);
     }
     if(store.family === 'Z'){
       console.log("Please input an alphabetical letter");
