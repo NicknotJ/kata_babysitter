@@ -32,14 +32,20 @@ async function babysit(){
       console.log("Please input an alphabetical letter");
     }
   } while (store.family === 'Y' || store.family === 'Z');
-  
-    console.log(store.family);
+  let attempt = 0;
+  do {
+  if(attempt !== 0){
+    console.log('Please try again'); 
+  }
+  attempt = 1;
   store.startNumber = await ask('What time (number only) did you start sitting?');
   store.startTime = await ask('Did you start in the am or pm?');
   store.endNumber = await ask('What time (number only) did you stop sitting?');
   store.endTime = await ask('Did you stop in the am or pm?');
+  } while (calculations.userSitHours(store.startNumber, store.startTime, store.endNumber, store.endTime) === -1);
   amountEarned = families.families[store.family].totalAmount(store.startNumber, store.startTime, store.endNumber, store.endTime);
   console.log('Congratulations, you earned ' + amountEarned + 'dollars!');
+
 }
 
 
