@@ -32,13 +32,10 @@ async function babysit(){
       console.log("Please input an alphabetical letter");
     }
   } while (store.family === 'Y' || store.family === 'Z');
-  let attempt = 0;
   let errorMessage;
   do {
-  if(attempt !== 0){
-    if(errorMessage){
-      console.log(`ERROR: ${errorMessage} Please try again.`);
-    }
+  if(errorMessage){
+    console.log(`ERROR: ${errorMessage} Please try again.`);
   }
   errorMessage = '';
   attempt = 1;
