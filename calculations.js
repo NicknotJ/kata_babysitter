@@ -40,13 +40,13 @@ function userSitHours(startNumber, startTime, endNumber, endTime){
 }
 
 function convertTime(number, time){
-  if(time === 'pm' && (number < 5 || number === 12)){
+  if(time === 'pm' && (number < 5 || number == 12)){
     return -1;
   }
-  if(time === 'am' && (number > 4 && number !== 12)){
+  if(time === 'am' && (number > 4 && number != 12)){
     return -1;
   }
-  if(time === 'pm' || number === 12){
+  if(time === 'pm' || number == 12){
     return number - 5;
   }
   if(time === 'am'){

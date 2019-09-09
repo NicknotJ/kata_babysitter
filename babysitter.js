@@ -42,10 +42,12 @@ async function babysit(){
   store.startTime = await ask('Did you start in the am or pm?');
   store.endNumber = await ask('What time (number only) did you stop sitting?');
   store.endTime = await ask('Did you stop in the am or pm?');
+  console.log(store);
+  console.log('userSitHours is...');
+  console.log(calculations.userSitHours(store.startNumber, store.startTime, store.endNumber, store.endTime));
   } while (calculations.userSitHours(store.startNumber, store.startTime, store.endNumber, store.endTime) === -1);
   amountEarned = families.families[store.family].totalAmount(store.startNumber, store.startTime, store.endNumber, store.endTime);
-  console.log('Congratulations, you earned ' + amountEarned + 'dollars!');
-
+  console.log('Congratulations, you earned ' + amountEarned + ' dollars!');
 }
 
 
