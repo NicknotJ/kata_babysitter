@@ -23,7 +23,7 @@ async function babysit(){
    
   //  greetingTimer(exampleFunction);
   do {
-    let input = await ask('What family did you sit for?');
+    let input = await ask('What family did you sit for?\n');
     store.family = calculations.userSitFamily(input);
     if(store.family === 'Y'){
       console.log(`I'm sorry, there is no family${input}`);
@@ -38,13 +38,10 @@ async function babysit(){
     console.log('Please try again'); 
   }
   attempt = 1;
-  store.startNumber = await ask('What time (number only) did you start sitting?');
-  store.startTime = await ask('Did you start in the am or pm?');
-  store.endNumber = await ask('What time (number only) did you stop sitting?');
-  store.endTime = await ask('Did you stop in the am or pm?');
-  console.log(store);
-  console.log('userSitHours is...');
-  console.log(calculations.userSitHours(store.startNumber, store.startTime, store.endNumber, store.endTime));
+  store.startNumber = await ask('What time (number only) did you start sitting?\n');
+  store.startTime = await ask('Did you start in the am or pm?\n');
+  store.endNumber = await ask('What time (number only) did you stop sitting?\n');
+  store.endTime = await ask('Did you stop in the am or pm?\n');
   } while (calculations.userSitHours(store.startNumber, store.startTime, store.endNumber, store.endTime) === -1);
   amountEarned = families.families[store.family].totalAmount(store.startNumber, store.startTime, store.endNumber, store.endTime);
   console.log('Congratulations, you earned ' + amountEarned + ' dollars!');
