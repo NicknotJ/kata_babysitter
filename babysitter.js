@@ -33,15 +33,27 @@ async function babysit(){
     }
   } while (store.family === 'Y' || store.family === 'Z');
   let attempt = 0;
+  let errorMessage;
   do {
   if(attempt !== 0){
-    console.log('Please try again'); 
+    if(errorMessage){
+      console.log(`ERROR: ${errorMessage} Please try again.`);
+    }
   }
+  errorMessage = '';
   attempt = 1;
   store.startNumber = await ask('What time (number only) did you start sitting?\n');
   store.startTime = await ask('Did you start in the am or pm?\n');
+  if(calculations.convertTime(store.startNumber, store.startTime) === -1){
+    errorMessage = 'Starting times must be at/after 5pm and before 4am.';
+    continue;
+  }
   store.endNumber = await ask('What time (number only) did you stop sitting?\n');
   store.endTime = await ask('Did you stop in the am or pm?\n');
+  if(calculations.convertTime(store.endNumber, store.endTime) === -1){
+    errorMessage = 'End times must be after 5pm and before/at 4am.';
+    continue;
+  }
   } while (calculations.userSitHours(store.startNumber, store.startTime, store.endNumber, store.endTime) === -1);
   amountEarned = families.families[store.family].totalAmount(store.startNumber, store.startTime, store.endNumber, store.endTime);
   console.log('Congratulations, you earned ' + amountEarned + ' dollars!');
