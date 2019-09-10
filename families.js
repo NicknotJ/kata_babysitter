@@ -7,9 +7,6 @@ class Family {
     this.numberOfTimeSpans = timeSpan.length;
   }
 
-  calculatePay(hours, rate){
-    return hours * rate;
-  }
   totalAmount(startNumber, startTime, endNumber, endTime){
     //Sanity check (no reason to do the calculations if the times are impossible)
     if(calculations.userSitHours(startNumber, startTime, endNumber, endTime) === -1){
@@ -57,6 +54,11 @@ class Family {
     return earned;
   }
 }
+
+//This is done outside of the object itself to save memory space
+Family.prototype.calculatePay = (hours, rate) => hours * rate;
+
+
 
 //Family A pays $15 per hour before 11pm, and $20 per hour the rest of the night
 const familyA = new Family('A', [{startNumber: 5, startTime: 'pm', endNumber: 11, endTime: 'pm', rate: 15, hourly: true}, {startNumber: 11, startTime: 'pm', endNumber: 4, endTime: 'am', rate: 20, hourly: false}]);
