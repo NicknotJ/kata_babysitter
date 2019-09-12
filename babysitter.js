@@ -8,7 +8,8 @@ const store = {
   startNumber: undefined,
   startTime: undefined,
   endNumber: undefined,
-  endTime: undefined
+  endTime: undefined,
+  errorMessage: ''
 };
 
 const readlineInterface = readline.createInterface(process.stdin, process.stdout);
@@ -32,27 +33,26 @@ async function babysit(){
       console.log("Please input an alphabetical letter");
     }
   } while (store.family === 'Y' || store.family === 'Z');
-  let errorMessage;
   do {
-  if(errorMessage){
-    console.log(`ERROR: ${errorMessage} Please try again.`);
+  if(store.errorMessage){
+    console.log(`ERROR: ${store.errorMessage} Please try again.`);
   }
-  errorMessage = '';
+  store.errorMessage = '';
   attempt = 1;
   store.startNumber = await ask('What time (number only) did you start sitting?\n');
   store.startTime = await ask('Did you start in the am or pm?\n');
   if(calculations.convertTime(store.startNumber, store.startTime) === -1){
-    errorMessage = 'Starting times must be at/after 5pm and before 4am.';
+    store.errorMessage = 'Starting times must be at/after 5pm and before 4am.';
     continue;
   }
   store.endNumber = await ask('What time (number only) did you stop sitting?\n');
   store.endTime = await ask('Did you stop in the am or pm?\n');
   if(calculations.convertTime(store.endNumber, store.endTime) === -1){
-    errorMessage = 'End times must be after 5pm and before/at 4am.';
+    store.errorMessage = 'End times must be after 5pm and before/at 4am.';
     continue;
   }
   if(calculations.userSitHours(store.startNumber, store.startTime, store.endNumber, store.endTime) === -1){
-    errorMessage = 'Starting Times must be before End Times.';
+    store.errorMessage = 'Starting Times must be before End Times.';
     continue;
   }
   //currently cannot handle mistyping of am/pm

@@ -10,7 +10,7 @@ const assert = chai.assert;
 //   });
 // })
 
-describe('babySat', () => {
+describe('babySit', () => {
   it('Should exist', () => {
     assert.isDefined(babysitter.babysit, 'babysit is defined');
   });
