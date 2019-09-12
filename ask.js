@@ -1,10 +1,16 @@
-const readline = require('readline');
+const inquirer = require('inquirer');
+let store = {};
 
-const readlineInterface = readline.createInterface(process.stdin, process.stdout);
-function ask(questionText) {
-  return new Promise((resolve, reject) => {
-    readlineInterface.question(questionText, resolve);
-  });
-}
+const questions = [
+  {
+    type: 'list',
+    name: 'family',
+    message: 'Which family did you sit for?',
+    choices: ['A', 'B', 'C']
+  }
+]
+inquirer.prompt(questions).then(answers => {
+  store.family = answers.family;
+  console.log(`Okay, you sat for family ${store.family}`);
+});
 
-module.exports = ask;
