@@ -19,8 +19,16 @@ const questions = [
 //This first part is not going to work... we need to set something up so
 //we get a userInput and then call ask. Or do we just do it all through
 //inquirer?
-inquirer.prompt(questions).then(answers => {
-  store.family = answers.family;
-  console.log(answers);
-  console.log(`Okay, you sat for family ${store.family}`);
-})
+// inquirer.prompt(questions).then(answers => {
+//   store.family = answers.family;
+//   console.log(answers);
+//   console.log(`Okay, you sat for family ${store.family}`);
+// })
+
+function ask(index){
+  inquirer.prompt(questions[index]).then(answers => {
+    console.log(answers);
+  });
+}
+
+ask(0);
