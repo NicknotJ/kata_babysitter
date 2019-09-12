@@ -51,6 +51,11 @@ async function babysit(){
     errorMessage = 'End times must be after 5pm and before/at 4am.';
     continue;
   }
+  if(calculations.userSitHours(store.startNumber, store.startTime, store.endNumber, store.endTime) === -1){
+    errorMessage = 'Starting Times must be before End Times.';
+    continue;
+  }
+  //currently cannot handle mistyping of am/pm
   } while (calculations.userSitHours(store.startNumber, store.startTime, store.endNumber, store.endTime) === -1);
   amountEarned = families.families[store.family].totalAmount(store.startNumber, store.startTime, store.endNumber, store.endTime);
   console.log('Congratulations, you earned ' + amountEarned + ' dollars!');
